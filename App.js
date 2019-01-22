@@ -31,14 +31,19 @@ export default class App extends Component {
     );
   }
   _getWeather=(lat, long) => {
-    fetch('http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${API_KEY}')
-    .then(response => response.json()).then(json => {
+    let weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&appid='+ API_KEY;
+    console.log("weatherUrl : "+weatherUrl);
+
+    fetch(weatherUrl).then(response => response.json()).then(data => {
       //console.log(json);
       this.setState({
-        temperature: json.main.temp,
-        name: json.weather[0].main,
+        temperature: data.main.temp,
+        name: data.weather[0].main,
         isLoaded: true
       })
+    })
+    .catch((error) => {
+      console.error(error);
     });
   };
   render() {
