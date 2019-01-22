@@ -24,3 +24,6 @@ const styles = StyleSheet.create ({
 <--flex box 처리방식 end-->
 
 api 호출 시 key를 미리 생성해야함(10분 후 연동 가능)
+
+소스를 받아서 실행 시 정상적으로 처리 됨
+
